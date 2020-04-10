@@ -1,0 +1,3 @@
+@serviceUrl = http://localhost:3000
+
+GET \{{serviceUrl}}/node/health HTTP/1.1

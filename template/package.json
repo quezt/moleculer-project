@@ -1,0 +1,59 @@
+{
+  "name": "{{projectName}}",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    {{#useMongoDBWithApiGW}}
+    "api-query-params": "^4.15.0",
+    {{/useMongoDBWithApiGW}}
+    "find-up": "^4.1.0",
+    "fs-extra": "^9.0.0",
+    "moleculer": "^0.14.5"{{#apiGW}},
+    "moleculer-web": "^0.9.1"{{/apiGW}}{{#useMongoDB}},
+    "moleculer-db": "^0.8.6",
+    "moleculer-db-adapter-mongo": "^0.4.8"{{/useMongoDB}}{{#if_eq logger "Bunyan"}},
+    "bunyan": "^1.8.12"{{/if_eq}}{{#if_eq logger "Pino"}},
+    "pino": "^6.1.1"{{/if_eq}}
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    {{#useJest}}
+    "@types/jest": "^25.2.1",
+    {{/useJest}}
+    {{#useMongoDB}}
+    "@types/mongodb": "^3.5.5",
+    {{/useMongoDB}}
+    "@types/node": "^13.11.0",
+    {{#useLint}}
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    {{/useLint}}
+    "dotenv": "^8.2.0",
+    {{#useJest}}
+    "jest": "^25.3.0",
+    "jest-junit": "^10.0.0",
+    "ts-jest": "^25.3.1",
+    {{/useJest}}
+    "moleculer-repl": "^0.6.3",
+    {{#usePrettier}}
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1",
+    {{/usePrettier}}
+    "rimraf": "^3.0.2",
+    {{#useLint}}
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-typescript-sort-keys": "^0.8.0",
+    {{/useLint}}
+    "typescript": "^3.8.3"
+  }{{#useJest}},
+  "scripts": {
+    "test": "jest --testMatch '<rootDir>/test/unit/**/*.spec.ts' --no-cache --config ./jest.config.js"
+  }{{/useJest}}{{#usePrettier}},
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }{{/usePrettier}}
+}

@@ -1,0 +1,8 @@
+{
+    "apiGW": false,
+    "useMongoDB": false,
+    "useLint": true,
+    "usePrettier": false,
+    "useJest": false,
+    "install": false
+}

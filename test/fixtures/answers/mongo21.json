@@ -1,0 +1,14 @@
+{
+    "apiGW": false,
+    "useMongoDB": true,
+    "useLint": false,
+    "usePrettier": true,
+    "useJest": true,
+    "install": false,
+    "MONGODB_URI": "mongodb://localhost:27017/",
+    "MONGODB_REPLICASET": "",
+    "MONGODB_SSL": false,
+    "MONGODB_AUTHSOURCE": "",
+    "MONGODB_AUTH_USER": "",
+    "MONGODB_AUTH_PASSWORD": ""
+}

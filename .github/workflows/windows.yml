@@ -1,0 +1,44 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Windows
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 13.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install moleculer-cli
+      run: npm install -g moleculer-cli
+    - name: Install dependencies
+      run: npm install
+    - name: Run tests
+      run: ./node_modules/.bin/jest --testMatch '<rootDir>/src/*.spec.js' --config test/jest.config.js
+    - name: init project
+      run: moleculer init .. t1 --no-install -a ../test/fixtures/answers/all.json
+      if: matrix.node-version != '10.x'
+      working-directory: ./target
+    - name: yarn install
+      run: yarn install
+      if: matrix.node-version != '10.x'
+      working-directory: ./target/t1
+    - name: Run tests
+      run: ./node_modules/jest/bin/jest.js --testMatch '<rootDir>/test/unit/**/*.spec.ts' --config jest.config.js
+      if: matrix.node-version != '10.x'
+      working-directory: ./target/t1

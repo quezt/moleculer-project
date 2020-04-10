@@ -1,0 +1,26 @@
+{
+  "name": "moleculer-project",
+  "version": "1.0.0",
+  "description": "Moleculer-based microservices project template",
+  "main": "meta.js",
+  "license": "MIT",
+  "devDependencies": {
+    "exeq": "^3.0.0",
+    "jest": "^25.3.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "test": "jest --testMatch '<rootDir>/src/*.spec.js' --no-cache --config ./test/jest.config.js"
+  },
+  "repository": "github:quezt/moleculer-project",
+  "author": "quezt",
+  "bugs": {
+    "url": "https://github.com/quezt/moleculer-project/issues"
+  },
+  "homepage": "https://github.com/quezt/moleculer-project#readme",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}

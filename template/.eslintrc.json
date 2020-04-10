@@ -1,0 +1,68 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "jquery": false,
+        "jest": true,
+        "jasmine": false
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "typescript-sort-keys"
+    ],
+    "rules": {
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-var": [
+            "error"
+        ],
+        "no-console": [
+            "error"
+        ],
+        "no-unused-vars": [
+            "error"
+        ],
+        "no-mixed-spaces-and-tabs": [
+            "error"
+        ],
+        "sort-keys": [
+            "off",
+            "asc"
+        ],
+        "sort-imports": "error",
+        "sort-vars": "error",
+        "typescript-sort-keys/interface": 2,
+        "typescript-sort-keys/string-enum": 2,
+        "@typescript-eslint/ban-ts-ignore": "off",
+        "@typescript-eslint/consistent-type-assertions": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+        
+    }
+}
